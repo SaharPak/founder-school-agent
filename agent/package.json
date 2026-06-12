@@ -1,7 +1,7 @@
 {
   "name": "founder-school-companion",
   "version": "1.0.0",
-  "description": "An AI agent that helps founders — built as an application assignment for Aalto Founder School's Ecosystem & Events Coordinator role.",
+  "description": "An AI agent that helps founders, built as an application assignment for Aalto Founder School's Ecosystem & Events Coordinator role.",
   "type": "module",
   "main": "server.js",
   "scripts": {

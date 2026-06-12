@@ -1,14 +1,21 @@
 import express from "express";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import {
-  coachReply,
-  validateIdea,
-  designEvent,
-} from "./lib/demoEngine.js";
-import { callLLM, llmStatus } from "./lib/llm.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Auto-load agent/.env (if present) so `npm start` picks up the API key
+// without any extra flags. The .env file is gitignored.
+try {
+  process.loadEnvFile(join(__dirname, ".env"));
+} catch {
+  // no .env file — that's fine, the app runs in demo mode
+}
+
+const { coachReply, validateIdea, designEvent } = await import(
+  "./lib/demoEngine.js"
+);
+const { callLLM, streamLLM, llmStatus } = await import("./lib/llm.js");
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
@@ -31,21 +38,37 @@ app.post("/api/chat", async (req, res) => {
   const history = Array.isArray(req.body?.history) ? req.body.history : [];
   if (!message) return res.status(400).json({ error: "message is required" });
 
-  const system = `You are the Founder School Companion, the AI mentor for Aalto University Founder School.
+  const system = `You are the Founder School Agent, the AI mentor for Aalto University Founder School.
 Voice: bold, warm, action-oriented, concise. You train the next wave of ambitious founders.
 Always end with one concrete next step the founder can take in the next 48 hours.
-Keep answers under 180 words unless asked for more.`;
+Keep answers under 180 words unless asked for more.
+Never use em dashes; use commas, colons, or separate sentences instead.`;
 
-  try {
-    const llm = await callLLM({
-      system,
-      messages: [...history, { role: "user", content: message }],
-    });
-    if (llm) return res.json({ reply: llm, source: "llm" });
-  } catch (err) {
-    console.error("LLM chat error:", err.message);
+  // Stream the reply as plain text so the UI can render it token-by-token.
+  res.setHeader("Content-Type", "text/plain; charset=utf-8");
+  res.setHeader("Cache-Control", "no-cache");
+
+  if (llmStatus().enabled) {
+    try {
+      let streamed = false;
+      for await (const token of streamLLM({
+        system,
+        messages: [...history, { role: "user", content: message }],
+      })) {
+        streamed = true;
+        res.write(token);
+      }
+      if (streamed) return res.end();
+      // nothing came back; fall through to demo
+    } catch (err) {
+      console.error("LLM chat error:", err.message);
+      if (res.headersSent) return res.end();
+    }
   }
-  res.json({ reply: coachReply(message), source: "demo" });
+
+  // Demo fallback (sent as a single chunk; the streaming reader handles it).
+  res.write(coachReply(message));
+  res.end();
 });
 
 app.post("/api/validate", async (req, res) => {
@@ -64,7 +87,8 @@ Return ONLY valid JSON (no markdown) matching:
   "experiments": [string, string, string],
   "founderSchoolFit": string
 }
-"experiments" must be cheap tests doable in under one week. Be honest but encouraging.`;
+"experiments" must be cheap tests doable in under one week. Be honest but encouraging.
+Never use em dashes in any field; use commas, colons, or separate sentences instead.`;
 
   try {
     const llm = await callLLM({
@@ -99,7 +123,8 @@ Return ONLY valid JSON (no markdown) matching:
   "metrics": [string, string, string],
   "checklist": [string, string, string, string]
 }
-Be concrete, energetic, and realistic for a campus startup event.`;
+Be concrete, energetic, and realistic for a campus startup event.
+Never use em dashes in any field; use commas, colons, or separate sentences instead.`;
 
   try {
     const llm = await callLLM({
@@ -135,8 +160,8 @@ function safeJson(text) {
 
 app.listen(PORT, () => {
   const status = llmStatus();
-  console.log(`\n  Founder School Companion running → http://localhost:${PORT}`);
+  console.log(`\n  Founder School Agent running → http://localhost:${PORT}`);
   console.log(
-    `  Mode: ${status.enabled ? `LLM (${status.model})` : "DEMO (no API key — fully functional offline)"}\n`
+    `  Mode: ${status.enabled ? `LLM (${status.model})` : "DEMO (no API key, fully functional offline)"}\n`
   );
 });

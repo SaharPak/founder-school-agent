@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------
-   Aalto Founder School — light theme
+   Aalto Founder School light theme
    Colors, type, and styling mirror Aalto University's design tokens:
      text #151515 · surfaces #fff / #F2F2F2 · grey scale #e3e3e3…#505050
      highlight blue #46A5FF · Aalto red #bc2815 · Aalto yellow #f7e159
@@ -50,8 +50,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 22px clamp(16px, 5vw, 56px);
-  max-width: 1080px;
+  padding: 22px clamp(20px, 5vw, 48px);
+  max-width: 880px;
   margin: 0 auto;
   border-bottom: 1px solid var(--line);
 }
@@ -119,9 +119,9 @@ body {
 
 /* Layout */
 main {
-  max-width: 820px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 12px clamp(16px, 5vw, 56px) 72px;
+  padding: 12px clamp(20px, 5vw, 48px) 72px;
 }
 
 .hero {
@@ -158,7 +158,7 @@ main {
   max-width: 560px;
 }
 
-/* Tabs — Aalto underline/arrow style */
+/* Tabs: Aalto underline/arrow style */
 .tabs {
   display: flex;
   gap: 28px;
@@ -244,16 +244,76 @@ main {
 
 .msg {
   display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 88%;
+}
+
+.msg.bot {
+  align-self: flex-start;
 }
 
 .msg.user {
-  justify-content: flex-end;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.avatar.coach {
+  background: var(--ink);
+  color: #fff;
+}
+
+.avatar.coach svg .eye {
+  fill: var(--yellow);
+  stroke: none;
+}
+
+.avatar.user {
+  background: var(--surface-2);
+  color: var(--grey-deep);
+}
+
+.msg-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.msg.user .msg-body {
+  align-items: flex-end;
+}
+
+.msg-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--grey);
+  padding: 0 4px;
 }
 
 .bubble {
-  max-width: 82%;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 14px;
   font-size: 15px;
   white-space: pre-wrap;
 }
@@ -261,18 +321,30 @@ main {
 .msg.bot .bubble {
   background: var(--bg);
   border: 1px solid var(--line);
-  border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 3px;
 }
 
 .msg.user .bubble {
   background: var(--ink);
   color: #fff;
-  border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 3px;
 }
 
 .bubble.typing {
   color: var(--grey);
   font-style: italic;
+}
+
+.bubble code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.88em;
+  background: rgba(127, 127, 127, 0.16);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.bubble strong {
+  font-weight: 700;
 }
 
 .suggestions {
@@ -538,9 +610,9 @@ ul.clean li {
 
 /* Footer */
 .foot {
-  max-width: 820px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 28px clamp(16px, 5vw, 56px) 56px;
+  padding: 28px clamp(20px, 5vw, 48px) 56px;
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;

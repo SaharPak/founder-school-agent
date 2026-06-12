@@ -33,19 +33,51 @@ tabs.forEach((tab) => {
 const esc = (s) =>
   String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
+// Minimal, safe Markdown for chat bubbles (the only HTML source is our own LLM).
+function renderMarkdown(text) {
+  let html = esc(text);
+  html = html.replace(/^#{1,6}\s*(.+)$/gm, "<strong>$1</strong>"); // headings
+  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"); // bold
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>"); // inline code
+  html = html.replace(/^\s*[-*]\s+(.+)$/gm, "• $1"); // bullets
+  return html;
+}
+
 // ---- Founder Coach ----
 const chat = document.getElementById("chat");
 const chatForm = document.getElementById("chatForm");
 const chatInput = document.getElementById("chatInput");
 const history = [];
 
+const AVATARS = {
+  bot: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="3" r="1.4"/><line x1="12" y1="4.4" x2="12" y2="7"/><rect x="4" y="7" width="16" height="12" rx="3.5"/><circle cx="9" cy="13" r="1.5" class="eye"/><circle cx="15" cy="13" r="1.5" class="eye"/></svg>`,
+  user: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20c0-4 3.7-6.2 7.5-6.2S19.5 16 19.5 20"/></svg>`,
+};
+
 function addMsg(role, text) {
+  const isUser = role === "user";
   const wrap = document.createElement("div");
   wrap.className = `msg ${role}`;
+
+  const avatar = document.createElement("div");
+  avatar.className = `avatar ${isUser ? "user" : "coach"}`;
+  avatar.innerHTML = isUser ? AVATARS.user : AVATARS.bot;
+
+  const body = document.createElement("div");
+  body.className = "msg-body";
+
+  const name = document.createElement("div");
+  name.className = "msg-name";
+  name.textContent = isUser ? "You" : "Founder Coach";
+
   const bubble = document.createElement("div");
   bubble.className = "bubble";
   bubble.textContent = text;
-  wrap.appendChild(bubble);
+
+  body.appendChild(name);
+  body.appendChild(bubble);
+  wrap.appendChild(avatar);
+  wrap.appendChild(body);
   chat.appendChild(wrap);
   chat.scrollTop = chat.scrollHeight;
   return bubble;
@@ -54,8 +86,8 @@ function addMsg(role, text) {
 async function sendChat(message) {
   addMsg("user", message);
   history.push({ role: "user", content: message });
-  const typing = addMsg("bot", "thinking…");
-  typing.classList.add("typing");
+  const bubble = addMsg("bot", "thinking…");
+  bubble.classList.add("typing");
 
   try {
     const res = await fetch("/api/chat", {
@@ -63,13 +95,30 @@ async function sendChat(message) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message, history: history.slice(-8) }),
     });
-    const data = await res.json();
-    typing.classList.remove("typing");
-    typing.textContent = data.reply;
-    history.push({ role: "assistant", content: data.reply });
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let full = "";
+    let started = false;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      full += decoder.decode(value, { stream: true });
+      if (!started && full.trim()) {
+        bubble.classList.remove("typing");
+        started = true;
+      }
+      bubble.innerHTML = renderMarkdown(full);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    bubble.classList.remove("typing");
+    bubble.innerHTML = renderMarkdown(full);
+    history.push({ role: "assistant", content: full });
   } catch {
-    typing.classList.remove("typing");
-    typing.textContent = "Connection hiccup — try again in a moment.";
+    bubble.classList.remove("typing");
+    bubble.textContent = "Connection hiccup. Try again in a moment.";
   }
   chat.scrollTop = chat.scrollHeight;
 }
@@ -109,7 +158,7 @@ validateForm.addEventListener("submit", async (e) => {
     const { result: r } = await res.json();
     renderValidation(r);
   } catch {
-    validateResult.innerHTML = `<div class="card">Something went wrong — try again.</div>`;
+    validateResult.innerHTML = `<div class="card">Something went wrong. Try again.</div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = "Validate my idea";
@@ -161,7 +210,7 @@ eventForm.addEventListener("submit", async (e) => {
     const { result: r } = await res.json();
     renderEvent(r);
   } catch {
-    eventResult.innerHTML = `<div class="card">Something went wrong — try again.</div>`;
+    eventResult.innerHTML = `<div class="card">Something went wrong. Try again.</div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = "Produce event plan";

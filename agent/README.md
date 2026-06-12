@@ -25,6 +25,8 @@ It bundles three tools into one agent:
 
 ## Run it
 
+Requirements: **Node.js 20+**.
+
 ```bash
 cd agent
 npm install

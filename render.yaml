@@ -1,0 +1,21 @@
+# Render blueprint for the Founder School Agent.
+# One-click deploy: https://render.com/deploy?repo=https://github.com/SaharPak/founder-school-companion
+#
+# By default this deploys in DEMO mode (no API key), which is fully functional
+# and free. To enable live Claude answers, set OPENAI_API_KEY in the Render
+# dashboard (Environment tab) after the first deploy.
+services:
+  - type: web
+    name: founder-school-agent
+    runtime: node
+    rootDir: agent
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false # set manually in the dashboard to enable live mode (optional)
+      - key: OPENAI_BASE_URL
+        value: https://api.anthropic.com/v1
+      - key: OPENAI_MODEL
+        value: claude-haiku-4-5-20251001

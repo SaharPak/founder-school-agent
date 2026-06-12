@@ -1,17 +1,23 @@
+/* ------------------------------------------------------------------
+   Aalto Founder School — light theme
+   Colors, type, and styling mirror Aalto University's design tokens:
+     text #151515 · surfaces #fff / #F2F2F2 · grey scale #e3e3e3…#505050
+     highlight blue #46A5FF · Aalto red #bc2815 · Aalto yellow #f7e159
+     Inter, weight 700 headings, tight negative letter-spacing
+------------------------------------------------------------------ */
+
 :root {
-  --ink: #0b0d17;
-  --ink-soft: #141828;
-  --card: #181d30;
-  --card-2: #1f2540;
-  --line: #2a3150;
-  --text: #eef1ff;
-  --muted: #9aa3c7;
-  --accent: #ff4d4d; /* Aalto-spirited bold red */
-  --accent-2: #4d7cff; /* electric blue */
-  --accent-3: #ffd24d; /* energetic yellow */
-  --good: #34d399;
-  --radius: 16px;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --ink: #151515;          /* Aalto brand text/background */
+  --bg: #ffffff;
+  --surface: #f2f2f2;      /* structural-900 */
+  --surface-2: #e3e3e3;    /* structural-800 */
+  --line: #d5d5d5;         /* structural-700 */
+  --grey: #6f6f6f;         /* structural-300 */
+  --grey-deep: #505050;    /* structural-200 */
+  --blue: #46a5ff;         /* highlight-1 */
+  --red: #bc2815;          /* alert/brand red */
+  --yellow: #f7e159;       /* status yellow */
+  --radius: 6px;
 }
 
 * {
@@ -25,33 +31,17 @@ body {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background: var(--ink);
-  color: var(--text);
+  font-family: "Inter", Arial, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
   min-height: 100vh;
-  line-height: 1.55;
-  position: relative;
-  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.aurora {
-  position: fixed;
-  inset: -30% -10% auto -10%;
-  height: 70vh;
-  background:
-    radial-gradient(40% 50% at 20% 20%, rgba(255, 77, 77, 0.25), transparent 70%),
-    radial-gradient(45% 55% at 80% 10%, rgba(77, 124, 255, 0.28), transparent 70%),
-    radial-gradient(35% 45% at 60% 60%, rgba(255, 210, 77, 0.18), transparent 70%);
-  filter: blur(20px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.topbar,
-main,
-.foot {
-  position: relative;
-  z-index: 1;
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
 }
 
 /* Header */
@@ -59,32 +49,43 @@ main,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px clamp(16px, 5vw, 48px);
-  max-width: 980px;
+  gap: 16px;
+  padding: 22px clamp(16px, 5vw, 56px);
+  max-width: 1080px;
   margin: 0 auto;
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--ink);
 }
 
-.logo-mark {
-  font-size: 28px;
-  color: var(--accent);
-  filter: drop-shadow(0 0 14px rgba(255, 77, 77, 0.6));
-}
-
-.brand strong {
+.aalto-logo {
+  height: 40px;
+  width: auto;
   display: block;
-  font-size: 16px;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 34px;
+  background: var(--line);
+}
+
+.brand-text strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .brand-sub {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--grey);
 }
 
 .mode-pill {
@@ -93,106 +94,117 @@ main,
   gap: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--muted);
-  background: var(--card);
+  color: var(--grey-deep);
+  background: var(--surface);
   border: 1px solid var(--line);
   padding: 6px 12px;
   border-radius: 999px;
+  white-space: nowrap;
 }
 
 .mode-pill .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--muted);
+  background: var(--grey);
 }
 
 .mode-pill.live .dot {
-  background: var(--good);
-  box-shadow: 0 0 10px var(--good);
+  background: #1f9d55;
 }
 
 .mode-pill.demo .dot {
-  background: var(--accent-3);
-  box-shadow: 0 0 10px var(--accent-3);
+  background: var(--blue);
 }
 
 /* Layout */
 main {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 8px clamp(16px, 5vw, 48px) 64px;
+  padding: 12px clamp(16px, 5vw, 56px) 72px;
 }
 
 .hero {
-  text-align: center;
-  padding: 28px 0 8px;
+  padding: 48px 0 12px;
+  max-width: 660px;
 }
 
 .kicker {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--accent-2);
-  margin: 0 0 14px;
+  color: var(--grey-deep);
+  margin: 0 0 18px;
 }
 
 .hero h1 {
-  font-family: "Fraunces", Georgia, serif;
   font-weight: 700;
-  font-size: clamp(32px, 6vw, 52px);
-  line-height: 1.05;
-  margin: 0 0 14px;
-  letter-spacing: -0.02em;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.022em; /* matches Aalto h1 -1.23px @56px */
+  margin: 0 0 18px;
 }
 
 .hero h1 em {
-  font-style: italic;
-  color: var(--accent);
+  font-style: normal;
+  background: linear-gradient(transparent 70%, var(--blue) 0);
 }
 
 .lede {
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto;
-  font-size: 16px;
+  color: var(--grey-deep);
+  font-size: 18px;
+  margin: 0;
+  max-width: 560px;
 }
 
-/* Tabs */
+/* Tabs — Aalto underline/arrow style */
 .tabs {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 18px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 6px;
-  border-radius: 999px;
+  gap: 28px;
+  margin: 40px 0 22px;
+  border-bottom: 1px solid var(--line);
 }
 
 .tab {
-  flex: 1;
+  position: relative;
   border: 0;
   background: transparent;
-  color: var(--muted);
+  color: var(--grey);
   font: inherit;
   font-weight: 600;
-  font-size: 14px;
-  padding: 10px 8px;
-  border-radius: 999px;
+  font-size: 15px;
+  padding: 0 0 14px;
   cursor: pointer;
-  transition: all 0.18s ease;
-  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.tab::before {
+  content: "→ ";
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
 .tab:hover {
-  color: var(--text);
+  color: var(--ink);
 }
 
 .tab.active {
-  background: linear-gradient(135deg, var(--accent), #ff7a3d);
-  color: #fff;
-  box-shadow: 0 8px 22px rgba(255, 77, 77, 0.35);
+  color: var(--ink);
+}
+
+.tab.active::before {
+  opacity: 1;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ink);
 }
 
 /* Panels */
@@ -218,7 +230,7 @@ main {
 
 /* Chat */
 .chat {
-  background: var(--card);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -228,7 +240,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: var(--shadow);
 }
 
 .msg {
@@ -240,27 +251,27 @@ main {
 }
 
 .bubble {
-  max-width: 80%;
+  max-width: 82%;
   padding: 12px 16px;
-  border-radius: 16px;
+  border-radius: 10px;
   font-size: 15px;
   white-space: pre-wrap;
 }
 
 .msg.bot .bubble {
-  background: var(--card-2);
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 2px;
 }
 
 .msg.user .bubble {
-  background: linear-gradient(135deg, var(--accent-2), #6a5cff);
+  background: var(--ink);
   color: #fff;
-  border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 2px;
 }
 
 .bubble.typing {
-  color: var(--muted);
+  color: var(--grey);
   font-style: italic;
 }
 
@@ -268,13 +279,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
 .suggestions button {
-  background: var(--card-2);
+  background: var(--bg);
   border: 1px solid var(--line);
-  color: var(--muted);
+  color: var(--grey-deep);
   font: inherit;
   font-size: 13px;
   padding: 7px 12px;
@@ -284,8 +295,8 @@ main {
 }
 
 .suggestions button:hover {
-  color: var(--text);
-  border-color: var(--accent-2);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 /* Forms */
@@ -304,7 +315,7 @@ main {
 
 .row {
   display: flex;
-  gap: 14px;
+  gap: 16px;
 }
 
 .row .stack {
@@ -314,20 +325,20 @@ main {
 label {
   font-size: 13px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--grey-deep);
 }
 
 input[type="text"],
 textarea,
 select {
   width: 100%;
-  background: var(--card);
+  background: var(--bg);
   border: 1px solid var(--line);
-  color: var(--text);
+  color: var(--ink);
   font: inherit;
   font-size: 15px;
   padding: 13px 15px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   resize: vertical;
@@ -336,8 +347,8 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--accent-2);
-  box-shadow: 0 0 0 3px rgba(77, 124, 255, 0.18);
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(70, 165, 255, 0.35);
 }
 
 .composer input {
@@ -345,85 +356,82 @@ select:focus {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), #ff7a3d);
+  background: var(--ink);
   color: #fff;
-  border: 0;
+  border: 1px solid var(--ink);
   font: inherit;
   font-weight: 700;
   font-size: 15px;
-  padding: 13px 22px;
-  border-radius: 12px;
+  padding: 13px 24px;
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.2s;
-  box-shadow: 0 8px 22px rgba(255, 77, 77, 0.3);
+  transition: background 0.15s ease, color 0.15s ease;
   white-space: nowrap;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
+  background: var(--bg);
+  color: var(--ink);
 }
 
 .btn-primary:disabled {
-  opacity: 0.6;
+  opacity: 0.55;
   cursor: wait;
-  transform: none;
+  background: var(--ink);
+  color: #fff;
 }
 
 #validateForm,
 #eventForm {
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 
 /* Results */
 .result {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .card {
-  background: var(--card);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
+  padding: 24px;
   animation: fade 0.3s ease;
 }
 
 .card h3 {
-  margin: 0 0 4px;
-  font-family: "Fraunces", serif;
-  font-size: 22px;
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
 }
 
 .card .sub {
-  color: var(--muted);
-  font-size: 14px;
-  margin: 0 0 14px;
+  color: var(--grey-deep);
+  font-size: 15px;
+  margin: 0 0 16px;
 }
 
 .score-ring {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin: 6px 0 16px;
+  gap: 18px;
+  margin: 8px 0 18px;
 }
 
 .score-num {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
-  font-family: "Fraunces", serif;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
 
 .score-bar {
   flex: 1;
-  height: 10px;
-  background: var(--ink-soft);
+  height: 8px;
+  background: var(--surface-2);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -431,21 +439,21 @@ select:focus {
 .score-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--good));
+  background: var(--blue);
   transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .field {
-  margin: 12px 0;
+  margin: 14px 0;
 }
 
 .field .k {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-2);
+  letter-spacing: 0.1em;
+  color: var(--grey-deep);
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .field .v {
@@ -469,9 +477,9 @@ ul.clean li {
 
 .agenda li {
   display: flex;
-  gap: 14px;
-  padding: 8px 0;
-  border-bottom: 1px dashed var(--line);
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .agenda li:last-child {
@@ -479,17 +487,18 @@ ul.clean li {
 }
 
 .agenda .t {
-  color: var(--accent-3);
+  color: var(--ink);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   min-width: 48px;
 }
 
 .promo-block {
-  background: var(--ink-soft);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 12px 14px;
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 13px 15px;
   margin: 8px 0;
   font-size: 14px;
   white-space: pre-wrap;
@@ -500,54 +509,68 @@ ul.clean li {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: var(--card-2);
+  background: var(--bg);
   border: 1px solid var(--line);
-  color: var(--muted);
+  color: var(--grey-deep);
   font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 4px 9px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .promo-block .copy:hover {
-  color: var(--text);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .tag {
   display: inline-block;
-  background: rgba(77, 124, 255, 0.15);
-  color: var(--accent-2);
-  border: 1px solid rgba(77, 124, 255, 0.3);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 3px 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
   border-radius: 999px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* Footer */
 .foot {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 24px clamp(16px, 5vw, 48px) 48px;
+  padding: 28px clamp(16px, 5vw, 56px) 56px;
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   font-size: 13px;
-  color: var(--muted);
+  color: var(--grey-deep);
 }
 
 .foot-note {
   font-size: 12px;
-  opacity: 0.8;
+  color: var(--grey);
+}
+
+.foot-legal {
+  font-size: 11px;
+  color: var(--grey);
+  margin-top: 6px;
 }
 
 @media (max-width: 560px) {
   .row {
     flex-direction: column;
   }
+  .tabs {
+    gap: 18px;
+  }
   .tab {
-    font-size: 12px;
+    font-size: 14px;
+  }
+  .brand-sub {
+    display: none;
   }
 }

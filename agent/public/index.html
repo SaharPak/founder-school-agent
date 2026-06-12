@@ -11,22 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="aurora"></div>
-
     <header class="topbar">
-      <div class="brand">
-        <span class="logo-mark">◆</span>
-        <div>
+      <a class="brand" href="https://www.aalto.fi/en/founder-school" target="_blank" rel="noopener">
+        <img class="aalto-logo" src="assets/aalto_en.svg" alt="Aalto University" />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-text">
           <strong>Founder School Companion</strong>
           <span class="brand-sub">AI that helps founders move fast</span>
-        </div>
-      </div>
+        </span>
+      </a>
       <div class="mode-pill" id="modePill" title="Backend mode">
         <span class="dot"></span><span id="modeText">checking…</span>
       </div>
@@ -34,7 +33,7 @@
 
     <main>
       <section class="hero">
-        <p class="kicker">Built for Aalto Founder School · Application assignment</p>
+        <p class="kicker">Aalto Founder School · Application assignment</p>
         <h1>Your AI co-pilot from <em>idea</em> to <em>event</em>.</h1>
         <p class="lede">
           Three tools in one agent: a founder coach, an idea validator, and an
@@ -43,9 +42,9 @@
       </section>
 
       <nav class="tabs" role="tablist">
-        <button class="tab active" data-tab="coach" role="tab">💬 Founder Coach</button>
-        <button class="tab" data-tab="validate" role="tab">🔍 Idea Validator</button>
-        <button class="tab" data-tab="event" role="tab">🎤 Event Architect</button>
+        <button class="tab active" data-tab="coach" role="tab">Founder Coach</button>
+        <button class="tab" data-tab="validate" role="tab">Idea Validator</button>
+        <button class="tab" data-tab="event" role="tab">Event Architect</button>
       </nav>
 
       <!-- COACH -->
@@ -131,6 +130,10 @@
       </span>
       <span class="foot-note">
         Runs fully offline in demo mode · add an API key for live LLM answers.
+      </span>
+      <span class="foot-legal">
+        An independent application project. “Aalto”, the Aalto logo, and “Founder
+        School” are trademarks of Aalto University, used here for context only.
       </span>
     </footer>
 

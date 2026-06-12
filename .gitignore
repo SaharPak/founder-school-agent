@@ -3,3 +3,6 @@ node_modules/
 .env.local
 *.log
 .DS_Store
+
+# Personal application documents (CV, cover letter) - keep private
+cv/

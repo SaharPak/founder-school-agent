@@ -51,9 +51,19 @@ agent/
 │   └── demoEngine.js    # deterministic on-brand responder (offline mode)
 └── public/
     ├── index.html       # single-page UI
-    ├── styles.css       # Aalto-spirited modern design
-    └── app.js           # tabs, chat, and tool rendering
+    ├── styles.css       # light theme using Aalto's real design tokens
+    ├── app.js           # tabs, chat, and tool rendering
+    └── assets/
+        └── aalto_en.svg # official Aalto "A!" logo (unaltered trademark)
 ```
+
+## Design
+
+The UI follows Aalto University's actual visual identity — extracted from the
+live Founder School site: Inter typeface with tight heading letter-spacing, the
+official "A!" logo, arrow-prefixed underline links, and Aalto's design tokens
+(`#151515` ink, highlight blue `#46A5FF`, yellow `#f7e159`) rendered as a clean
+**light theme**.
 
 ## Tech
 

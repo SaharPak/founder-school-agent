@@ -1,0 +1,23 @@
+{
+  "name": "founder-school-companion",
+  "version": "1.0.0",
+  "description": "An AI agent that helps founders — built as an application assignment for Aalto Founder School's Ecosystem & Events Coordinator role.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "ai-agent",
+    "startup",
+    "founder-school",
+    "aalto",
+    "events"
+  ],
+  "author": "Sahar Pakseresht",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

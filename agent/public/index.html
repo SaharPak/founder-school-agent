@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Founder School Companion · AI for founders</title>
+    <meta
+      name="description"
+      content="An AI agent that helps founders validate ideas, get coaching, and produce events — built for Aalto Founder School."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="aurora"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo-mark">◆</span>
+        <div>
+          <strong>Founder School Companion</strong>
+          <span class="brand-sub">AI that helps founders move fast</span>
+        </div>
+      </div>
+      <div class="mode-pill" id="modePill" title="Backend mode">
+        <span class="dot"></span><span id="modeText">checking…</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="kicker">Built for Aalto Founder School · Application assignment</p>
+        <h1>Your AI co-pilot from <em>idea</em> to <em>event</em>.</h1>
+        <p class="lede">
+          Three tools in one agent: a founder coach, an idea validator, and an
+          event architect. Bold advice, structured output, action by default.
+        </p>
+      </section>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="coach" role="tab">💬 Founder Coach</button>
+        <button class="tab" data-tab="validate" role="tab">🔍 Idea Validator</button>
+        <button class="tab" data-tab="event" role="tab">🎤 Event Architect</button>
+      </nav>
+
+      <!-- COACH -->
+      <section class="panel active" id="panel-coach">
+        <div class="chat" id="chat">
+          <div class="msg bot">
+            <div class="bubble">
+              Hi — I'm your Founder School Companion. Ask me anything about
+              starting up: idea, pitch, co-founders, traction, fundraising, or
+              fear. I'll keep it sharp and end with one thing to do next.
+            </div>
+          </div>
+        </div>
+        <div class="suggestions" id="suggestions">
+          <button>How do I know if my idea is worth pursuing?</button>
+          <button>I'm scared to launch. What do I do?</button>
+          <button>How do I find a co-founder?</button>
+        </div>
+        <form class="composer" id="chatForm">
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Ask your founder coach…"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn-primary">Send</button>
+        </form>
+      </section>
+
+      <!-- VALIDATE -->
+      <section class="panel" id="panel-validate">
+        <form id="validateForm" class="stack">
+          <label for="ideaInput">Describe your startup idea</label>
+          <textarea
+            id="ideaInput"
+            rows="4"
+            placeholder="e.g. A marketplace that connects Aalto students with local startups for paid micro-projects…"
+          ></textarea>
+          <button type="submit" class="btn-primary">Validate my idea</button>
+        </form>
+        <div id="validateResult" class="result"></div>
+      </section>
+
+      <!-- EVENT -->
+      <section class="panel" id="panel-event">
+        <form id="eventForm" class="stack">
+          <label for="topicInput">Event topic</label>
+          <input
+            id="topicInput"
+            type="text"
+            placeholder="e.g. fundraising your first €100k"
+          />
+          <div class="row">
+            <div class="stack">
+              <label for="formatInput">Format</label>
+              <select id="formatInput">
+                <option>Founder Talk</option>
+                <option>Workshop</option>
+                <option>Fireside chat</option>
+                <option>Info session</option>
+                <option>Community meetup</option>
+              </select>
+            </div>
+            <div class="stack">
+              <label for="audienceInput">Audience</label>
+              <input
+                id="audienceInput"
+                type="text"
+                value="Aalto students & founders"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Produce event plan</button>
+        </form>
+        <div id="eventResult" class="result"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>
+        Made by <strong>Sahar Pakseresht</strong> as the assignment for the
+        <em>Ecosystem &amp; Events Coordinator</em> role.
+      </span>
+      <span class="foot-note">
+        Runs fully offline in demo mode · add an API key for live LLM answers.
+      </span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -27,7 +27,7 @@ and post.
 >
 > Idea → working software. That's the loop I want to bring to a fast-moving ecosystem team.
 >
-> 👉 Code, docs, and demo: [link]
+> 👉 Live demo: https://founder-school-agent.onrender.com  ·  Code & docs: https://github.com/SaharPak/founder-school-companion
 >
 > #AaltoFounderSchool #Startups #AI #BuildInPublic #Entrepreneurship
 
@@ -45,7 +45,7 @@ and post.
 >
 > Founder School is "for people of action" — so I took action. 🚀
 >
-> Demo + code 👉 [link]
+> Live demo: https://founder-school-agent.onrender.com  ·  Code: https://github.com/SaharPak/founder-school-companion
 >
 > #AaltoFounderSchool #AI #Startups #BuildInPublic
 

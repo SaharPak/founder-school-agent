@@ -12,6 +12,10 @@
 [![Runs offline](https://img.shields.io/badge/Demo%20mode-zero%20setup-46A5FF)](#-running-locally)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f7e159.svg)](./LICENSE)
 
+### [▶️ Try the live demo →](https://founder-school-agent.onrender.com)
+
+*Runs in free demo mode, no login required. (First load may take ~50s while the free instance wakes up.)*
+
 [Overview](#-overview) · [Features](#-features) · [Architecture](#-architecture-overview) · [Run locally](#-running-locally) · [Screenshots](#-screenshots) · [Demo video](#-demo-video) · [Deploy](./DEPLOYMENT.md)
 
 </div>
@@ -185,7 +189,8 @@ The header pill shows whether you're in **Demo** or **Live** mode. See
 
 ## 🎬 Demo Video
 
-> A 90-second walkthrough video will live here. **[▶️ Watch the demo](#)** *(link coming soon)*.
+> A 90-second walkthrough video will live here *(link coming soon)*. In the meantime, the app is
+> live: **[▶️ try it yourself →](https://founder-school-agent.onrender.com)**.
 
 The full narrated script and shot list are in **[DEMO.md](./DEMO.md)**.
 

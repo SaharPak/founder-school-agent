@@ -16,8 +16,8 @@ at a steady pace to match each on-screen beat. Speak warmly, not robotically. Sa
 
 **Voice-over:**
 
-> "Founders lose weeks between having an idea and taking the next step. So I built Founder School
-> Companion: an AI agent that turns intent into action. Let me show you."
+> "Founders lose weeks between having an idea and taking the next step. So I built the Founder School
+> Agent: an AI agent that turns intent into action. Let me show you."
 
 ---
 
@@ -77,8 +77,8 @@ github.com/SaharPak/founder-school-agent · Sahar Pakseresht.*
 
 ## Full voice-over (continuous read)
 
-> Founders lose weeks between having an idea and taking the next step. So I built Founder School
-> Companion: an AI agent that turns intent into action. Let me show you.
+> Founders lose weeks between having an idea and taking the next step. So I built the Founder School
+> Agent: an AI agent that turns intent into action. Let me show you.
 >
 > Say I'm a founder with doubts. I ask the coach a real question, and instead of generic advice, I
 > get a bold answer that ends with one concrete thing to do in the next 48 hours. Fall in love with

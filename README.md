@@ -14,9 +14,9 @@
 
 ### [▶️ Try the live demo →](https://founder-school-agent.onrender.com)
 
-*Free to try, no login required. (First load may take ~50s while the free instance wakes up.)*
+*Free to try, no login required. Hosted on Render's free tier, so the first load can take up to ~50 seconds to wake if it has been idle.*
 
-[Overview](#-overview) · [Features](#-features) · [Architecture](#-architecture-overview) · [Run locally](#-running-locally) · [Screenshots](#-screenshots) · [Demo video](#-demo-video) · [Deploy](./DEPLOYMENT.md)
+[Overview](#-overview) · [Features](#-features) · [Architecture](#-architecture-overview) · [Run locally](#-running-locally) · [Screenshots](#-screenshots) · [Deploy](./DEPLOYMENT.md)
 
 </div>
 
@@ -187,13 +187,6 @@ The header pill shows whether you're in **Demo** or **Live** mode. See
 
 ![Terminal execution](./docs/screenshots/06-terminal.png)
 
-## 🎬 Demo Video
-
-> A 90-second walkthrough video will live here *(coming soon)*. In the meantime, the app is live, so
-> you can click through it yourself: **[▶️ try it →](https://founder-school-agent.onrender.com)**.
-
-The full narrated voice-over script and shot list are in **[DEMO.md](./DEMO.md)**.
-
 ## 🔭 Future Improvements
 
 - Persist past coaching sessions and idea reports per user.
@@ -219,6 +212,7 @@ founder-school-agent/
 │   ├── ARCHITECTURE.md      ← how the system works
 │   ├── EXAMPLES.md          ← realistic prompts and outputs
 │   ├── FUTURE.md            ← roadmap and future improvements
+│   ├── demo/                ← place your recorded demo video here
 │   └── screenshots/         ← app screenshots used in this README
 └── agent/                   ← the AI agent (runnable web app)
     ├── server.js            ← Express app + 3 API routes (LLM → demo fallback)
@@ -226,6 +220,7 @@ founder-school-agent/
     │   ├── llm.js           ← provider-agnostic OpenAI-compatible client
     │   └── demoEngine.js    ← deterministic on-brand responder (offline mode)
     ├── public/              ← single-page UI (HTML, CSS, JS, assets)
+    ├── Dockerfile           ← container image (for Hugging Face Spaces)
     ├── .env.example         ← configuration template
     └── README.md            ← agent-level technical notes
 ```

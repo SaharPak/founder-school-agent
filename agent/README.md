@@ -5,7 +5,7 @@ application assignment for Aalto University Founder School's
 *Ecosystem & Events Coordinator* role.
 
 **▶️ Live demo:** https://founder-school-agent.onrender.com
-(runs in free demo mode, no login required; first load may take ~50s while the free instance wakes up).
+(no login required; hosted on Render's free tier, so the first load can take up to ~50 seconds to wake if it has been idle).
 
 It bundles three tools into one agent:
 

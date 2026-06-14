@@ -49,6 +49,8 @@ The header pill shows whether you're in **Demo** or **Live** mode.
 ```
 agent/
 ├── server.js            # Express app + 3 API routes (LLM → demo fallback)
+├── Dockerfile           # container image (used for Hugging Face Spaces)
+├── .env.example         # configuration template
 ├── lib/
 │   ├── llm.js           # OpenAI-compatible client (provider-agnostic)
 │   └── demoEngine.js    # deterministic on-brand responder (offline mode)
@@ -59,6 +61,9 @@ agent/
     └── assets/
         └── aalto_en.svg # official Aalto "A!" logo (unaltered trademark)
 ```
+
+> Full project docs (architecture, examples, roadmap, deployment) live in the
+> [repository root](../README.md).
 
 ## Design
 

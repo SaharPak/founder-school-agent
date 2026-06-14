@@ -1,8 +1,25 @@
+# Dependencies
 node_modules/
+
+# Environment & secrets
 .env
 .env.local
+.env.*.local
+
+# Logs
 *.log
+npm-debug.log*
+
+# OS & editor cruft
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build / coverage output
+dist/
+build/
+coverage/
 
 # Personal application documents (CV, cover letter) - keep private
 cv/

@@ -189,10 +189,8 @@ The header pill shows whether you're in **Demo** or **Live** mode. See
 
 ## 🎬 Demo Video
 
-A **90-second screen recording** of the live app (real GPT-4o-mini answers) walking through all three
-tools: **[▶️ watch the demo](./docs/demo/founder-school-agent-demo.mp4)**.
-
-Prefer to click around yourself? The app is live: **[try it →](https://founder-school-agent.onrender.com)**.
+> A 90-second walkthrough video will live here *(coming soon)*. In the meantime, the app is live, so
+> you can click through it yourself: **[▶️ try it →](https://founder-school-agent.onrender.com)**.
 
 The full narrated voice-over script and shot list are in **[DEMO.md](./DEMO.md)**.
 

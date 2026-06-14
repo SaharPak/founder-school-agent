@@ -3,13 +3,10 @@
 A tight, recruiter-friendly walkthrough of **Founder School Agent**. Total runtime ≈ 90 seconds.
 The voice-over is written to sound natural and confident when read aloud.
 
-> 🎥 **A silent 90-second screen recording is already captured** at
-> [`docs/demo/founder-school-agent-demo.mp4`](./docs/demo/founder-school-agent-demo.mp4) —
-> it shows the live app (real GPT-4o-mini answers) moving through all three tools, timed to this
-> script. Record the voice-over below over that footage, or re-shoot your own.
-
-**Recording tips:** the captured footage runs at 1280x720. Read the voice-over at a calm pace to match
-each on-screen beat, and let each result fully render before moving on. Speak warmly, not robotically.
+**Recording tips:** screen-record at 1080p (the live app at `founder-school-agent.onrender.com`, or
+locally), keep the cursor calm, and let each result fully render before moving on. Read the voice-over
+at a steady pace to match each on-screen beat. Speak warmly, not robotically. Save the final file to
+`docs/demo/` and link it from the README's Demo Video section.
 
 ---
 

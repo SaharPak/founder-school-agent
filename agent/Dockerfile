@@ -1,4 +1,4 @@
-# Container image for the Founder School Companion agent.
+# Container image for the Founder School Agent agent.
 # Works on any Docker host. Tuned for Hugging Face Spaces, which expect the app
 # to listen on port 7860. See ../DEPLOYMENT.md for full instructions.
 

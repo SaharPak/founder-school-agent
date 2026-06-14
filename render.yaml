@@ -1,5 +1,5 @@
 # Render blueprint for the Founder School Agent.
-# One-click deploy: https://render.com/deploy?repo=https://github.com/SaharPak/founder-school-companion
+# One-click deploy: https://render.com/deploy?repo=https://github.com/SaharPak/founder-school-agent
 #
 # By default this deploys in DEMO mode (no API key), which is fully functional
 # and free. To enable live Claude answers, set OPENAI_API_KEY in the Render

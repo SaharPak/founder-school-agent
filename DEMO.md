@@ -1,10 +1,15 @@
 # Demo Video Script — 90 seconds
 
-A tight, recruiter-friendly walkthrough of **Founder School Companion**. Total runtime ≈ 90 seconds.
+A tight, recruiter-friendly walkthrough of **Founder School Agent**. Total runtime ≈ 90 seconds.
 The voice-over is written to sound natural and confident when read aloud.
 
-**Recording tips:** screen-record at 1080p, run the app in demo mode (no key needed), keep the cursor
-calm, and let each result fully render before moving on. Speak warmly, not robotically.
+> 🎥 **A silent 90-second screen recording is already captured** at
+> [`docs/demo/founder-school-agent-demo.mp4`](./docs/demo/founder-school-agent-demo.mp4) —
+> it shows the live app (real GPT-4o-mini answers) moving through all three tools, timed to this
+> script. Record the voice-over below over that footage, or re-shoot your own.
+
+**Recording tips:** the captured footage runs at 1280x720. Read the voice-over at a calm pace to match
+each on-screen beat, and let each result fully render before moving on. Speak warmly, not robotically.
 
 ---
 
@@ -68,8 +73,8 @@ format *Founder Talk*, click *Produce event plan*. Scroll slowly through the res
 > you add a key. The full source, documentation, and architecture are on GitHub. Idea to working
 > software: that's the loop I'd bring to the Founder School team. Thanks for watching."
 
-**On screen (end card):** *Founder School Companion · github.com/SaharPak/founder-school-companion ·
-Sahar Pakseresht.*
+**On screen (end card):** *Founder School Agent · founder-school-agent.onrender.com ·
+github.com/SaharPak/founder-school-agent · Sahar Pakseresht.*
 
 ---
 

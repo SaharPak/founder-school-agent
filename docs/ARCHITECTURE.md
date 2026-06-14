@@ -1,6 +1,6 @@
 # Architecture
 
-This document explains how **Founder School Companion** works, the decisions behind it, and the
+This document explains how **Founder School Agent** works, the decisions behind it, and the
 trade-offs I made. The goal was a project that is small enough to read in one sitting yet shaped
 like real production software.
 

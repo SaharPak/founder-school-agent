@@ -1,6 +1,6 @@
 <div align="center">
 
-# Founder School Companion
+# Founder School Agent
 
 ### An AI agent that helps founders move from *idea* to *action* to *event*.
 
@@ -14,7 +14,7 @@
 
 ### [▶️ Try the live demo →](https://founder-school-agent.onrender.com)
 
-*Runs in free demo mode, no login required. (First load may take ~50s while the free instance wakes up.)*
+*Free to try, no login required. (First load may take ~50s while the free instance wakes up.)*
 
 [Overview](#-overview) · [Features](#-features) · [Architecture](#-architecture-overview) · [Run locally](#-running-locally) · [Screenshots](#-screenshots) · [Demo video](#-demo-video) · [Deploy](./DEPLOYMENT.md)
 
@@ -32,7 +32,7 @@ So instead of writing about what I *would* do, I shipped working software that d
 
 ## 🚀 Overview
 
-**Founder School Companion** is a runnable AI web app that acts as a co-pilot for early-stage
+**Founder School Agent** is a runnable AI web app that acts as a co-pilot for early-stage
 founders and the people who support them. It bundles three tools into one agent:
 
 1. A **Founder Coach** that gives bold, action-first advice.
@@ -58,7 +58,7 @@ Both problems share a root cause: too much friction between *intent* and *action
 
 ## 💡 Solution
 
-Founder School Companion removes that friction with a single AI agent that always pushes toward a
+Founder School Agent removes that friction with a single AI agent that always pushes toward a
 concrete next step:
 
 - It coaches founders to **act in the next 48 hours**, not to ruminate.
@@ -108,7 +108,7 @@ falls back to a deterministic on-brand engine, so the product is **never broken*
 flowchart TD
     U["👤 User<br/>(founder / events coordinator)"] --> APP
 
-    subgraph APP["🧭 Founder School Companion (web app)"]
+    subgraph APP["🧭 Founder School Agent (web app)"]
         UI["Single-page UI<br/>Coach · Validator · Event Architect"]
         API["Express API<br/>/api/chat · /api/validate · /api/event"]
         UI --> API
@@ -143,8 +143,8 @@ For a deeper walkthrough of the request lifecycle, design decisions, and trade-o
 **Requirements:** [Node.js 20+](https://nodejs.org).
 
 ```bash
-git clone https://github.com/SaharPak/founder-school-companion.git
-cd founder-school-companion/agent
+git clone https://github.com/SaharPak/founder-school-agent.git
+cd founder-school-agent/agent
 npm install
 ```
 
@@ -189,10 +189,12 @@ The header pill shows whether you're in **Demo** or **Live** mode. See
 
 ## 🎬 Demo Video
 
-> A 90-second walkthrough video will live here *(link coming soon)*. In the meantime, the app is
-> live: **[▶️ try it yourself →](https://founder-school-agent.onrender.com)**.
+A **90-second screen recording** of the live app (real GPT-4o-mini answers) walking through all three
+tools: **[▶️ watch the demo](./docs/demo/founder-school-agent-demo.mp4)**.
 
-The full narrated script and shot list are in **[DEMO.md](./DEMO.md)**.
+Prefer to click around yourself? The app is live: **[try it →](https://founder-school-agent.onrender.com)**.
+
+The full narrated voice-over script and shot list are in **[DEMO.md](./DEMO.md)**.
 
 ## 🔭 Future Improvements
 
@@ -206,7 +208,7 @@ The full roadmap is in **[docs/FUTURE.md](./docs/FUTURE.md)**.
 ## 🗂️ Repository Structure
 
 ```
-founder-school-companion/
+founder-school-agent/
 ├── README.md                ← you are here
 ├── DEMO.md                  ← 90-second demo video script
 ├── DEPLOYMENT.md            ← deploy to Render / Hugging Face Spaces

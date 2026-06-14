@@ -1,6 +1,6 @@
 # Deployment Guide
 
-Founder School Companion runs anywhere Node.js runs. It works in **demo mode** with no configuration,
+Founder School Agent runs anywhere Node.js runs. It works in **demo mode** with no configuration,
 so you can deploy a fully functional public demo for free, then optionally add an API key for live AI.
 
 Two recommended paths are below.
@@ -20,7 +20,7 @@ everything automatically.
 1. **Push the repo to GitHub** (already done if you cloned it from GitHub).
 2. Go to [render.com](https://render.com) and sign in.
 3. Click **New → Blueprint**.
-4. Connect your GitHub account and select the `founder-school-companion` repository.
+4. Connect your GitHub account and select the `founder-school-agent` repository.
 5. Render reads `render.yaml`, detects the Node web service in `agent/`, and pre-fills:
    - **Build command:** `npm install`
    - **Start command:** `npm start`
@@ -51,14 +51,14 @@ Hugging Face Spaces can host the app as a **Docker Space**. A ready-to-use `Dock
 1. Create a free account at [huggingface.co](https://huggingface.co).
 2. Click **New → Space**.
 3. Configure the Space:
-   - **Owner / Space name:** e.g. `your-name/founder-school-companion`
+   - **Owner / Space name:** e.g. `your-name/founder-school-agent`
    - **SDK:** select **Docker** → **Blank**
    - **Visibility:** Public
 4. In the new Space, add the project files. The simplest way is to push from your machine:
 
    ```bash
    # from the repo root
-   git remote add space https://huggingface.co/spaces/<your-username>/founder-school-companion
+   git remote add space https://huggingface.co/spaces/<your-username>/founder-school-agent
    git push space main
    ```
 
@@ -69,7 +69,7 @@ Hugging Face Spaces can host the app as a **Docker Space**. A ready-to-use `Dock
 5. The Space builds the Docker image and starts the app. Hugging Face Spaces listen on **port 7860**,
    which the included `Dockerfile` sets via `ENV PORT=7860`.
 6. Once the build finishes, your public demo is live at
-   `https://huggingface.co/spaces/<your-username>/founder-school-companion`.
+   `https://huggingface.co/spaces/<your-username>/founder-school-agent`.
 
 ### (Optional) Enable live AI on Hugging Face
 

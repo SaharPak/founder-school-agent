@@ -1,6 +1,6 @@
 # Roadmap & Future Improvements
 
-Founder School Companion is deliberately scoped as a focused, runnable showcase. If it were taken
+Founder School Agent is deliberately scoped as a focused, runnable showcase. If it were taken
 forward as a real tool for the Founder School ecosystem, here is how I would grow it, ordered by
 impact-to-effort.
 

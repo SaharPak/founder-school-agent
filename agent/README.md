@@ -4,6 +4,9 @@ An AI agent that helps founders move from **idea → event**. Built as the
 application assignment for Aalto University Founder School's
 *Ecosystem & Events Coordinator* role.
 
+**▶️ Live demo:** https://founder-school-agent.onrender.com
+(runs in free demo mode, no login required; first load may take ~50s while the free instance wakes up).
+
 It bundles three tools into one agent:
 
 | Tool | What it does | Why it matters for this role |

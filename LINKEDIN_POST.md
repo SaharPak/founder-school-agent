@@ -13,7 +13,7 @@ and post.
 >
 > So instead of writing about what I would do in the role, I built it.
 >
-> Meet **Founder School Companion** 🚀 — an AI agent that helps founders move from idea to action to
+> Meet **Founder School Agent** 🚀 — an AI agent that helps founders move from idea to action to
 > event. It does three things:
 >
 > 💬 **Founder Coach** — bold, action-first advice that always ends with one concrete next step.
@@ -27,7 +27,7 @@ and post.
 >
 > Idea → working software. That's the loop I want to bring to a fast-moving ecosystem team.
 >
-> 👉 Live demo: https://founder-school-agent.onrender.com  ·  Code & docs: https://github.com/SaharPak/founder-school-companion
+> 👉 Live demo: https://founder-school-agent.onrender.com  ·  Code & docs: https://github.com/SaharPak/founder-school-agent
 >
 > #AaltoFounderSchool #Startups #AI #BuildInPublic #Entrepreneurship
 
@@ -38,14 +38,14 @@ and post.
 > I applied for the Ecosystem & Events Coordinator role at Aalto Founder School by shipping software
 > instead of just describing it.
 >
-> **Founder School Companion** is an AI agent with three tools: a Founder Coach, an Idea Validator,
+> **Founder School Agent** is an AI agent with three tools: a Founder Coach, an Idea Validator,
 > and an Event Architect that produces a full event plan in seconds.
 >
 > It runs offline with one command and upgrades to live AI with an API key.
 >
 > Founder School is "for people of action" — so I took action. 🚀
 >
-> Live demo: https://founder-school-agent.onrender.com  ·  Code: https://github.com/SaharPak/founder-school-companion
+> Live demo: https://founder-school-agent.onrender.com  ·  Code: https://github.com/SaharPak/founder-school-agent
 >
 > #AaltoFounderSchool #AI #Startups #BuildInPublic
 

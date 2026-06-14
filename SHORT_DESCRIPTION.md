@@ -2,6 +2,9 @@
 
 For resumes, portfolios, and project listings. Copy whichever length fits.
 
+**Live demo:** https://founder-school-agent.onrender.com
+**Code:** https://github.com/SaharPak/founder-school-agent
+
 ---
 
 ## One-liner
@@ -11,7 +14,7 @@ For resumes, portfolios, and project listings. Copy whichever length fits.
 
 ## Two to three sentences (recommended)
 
-> **Founder School Companion** is an AI web app that helps founders take action: it coaches them
+> **Founder School Agent** is an AI web app that helps founders take action: it coaches them
 > toward a concrete next step, validates raw ideas into honest reports with cheap experiments, and
 > generates complete event plans in seconds. Built as a self-initiated application project for Aalto
 > University Founder School, it runs fully offline with one command and upgrades to live AI with any
@@ -20,7 +23,7 @@ For resumes, portfolios, and project listings. Copy whichever length fits.
 
 ## Resume bullet
 
-> Designed and shipped **Founder School Companion**, an AI agent (Node.js + Express) with three tools
+> Designed and shipped **Founder School Agent**, an AI agent (Node.js + Express) with three tools
 > — founder coaching, idea validation, and automated event planning — featuring a zero-setup offline
 > demo mode and a provider-agnostic LLM layer (OpenAI / Anthropic / Groq / local), deployable to
 > Render or Hugging Face Spaces in one click.
